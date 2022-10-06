@@ -7,10 +7,10 @@ import {MatListModule} from '@angular/material/list';
 
 
 const material = [
- // MatButtonModule,
+  MatButtonModule,
   MatToolbarModule,
-  //MatIconModule,
- // MatListModule
+  MatIconModule,
+  MatListModule
 ]
 
 @NgModule({

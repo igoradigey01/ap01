@@ -1,2 +1,51 @@
-<div> <header>this header</header>
- </div>
+<mat-toolbar color="primary" class="_container_nav">
+  <div class="col_inner">
+    <a routerLink="" class="nav_link">
+
+      <span class="logo_inner-name" *ngIf="company_name_1">{{company_name_1}}</span>
+
+      <img class="logo_inner-img" [src]="srcLogo" alt="" loading="lazy" />
+      <span class="logo_inner-name-2">{{ company_name_2}}</span>
+    </a>
+  </div>
+  
+    <div class="col_inner menu-lg menu-items-lg ">
+      <span *ngFor="let item of MenuItems()">
+        <span  *ngIf='item.name==="info" ; else elseTemplate' >  <a class="nav_link" routerLink="{{ item.url }}"><mat-icon>info</mat-icon></a> </span>
+       
+        <ng-template #elseTemplate>
+          <span>
+            <a class="nav_link " routerLink="{{ item.url }}">{{ item.name }}</a>
+          </span>
+       </ng-template>
+      </span>
+      
+    </div>
+  
+    <div class="col_inner">
+      <!------------ start button menu-->
+      <div class="mobile-nav">
+        <!---       statr -->
+        <div class="menu-md">
+          <button mat-icon-button (click)="onSideBarVisible()" class="nav_link">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <!---------/-->
+      </div>
+  
+      <div class="menu-lg">
+       
+      
+       
+  
+        <!--start Role  --------------->
+        <!--- start Role ------>
+  
+        <!--end Role  --------------->
+  
+       
+      </div>
+    </div>
+  </mat-toolbar>
+  

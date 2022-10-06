@@ -31,7 +31,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
   //  BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
-  //  MaterialModule,
+   MaterialModule,
     ManagerServiceModule,
     HttpClientModule 
   ],

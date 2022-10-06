@@ -25,6 +25,9 @@ $color-hover:  style.$primary-lighter-color;
   }
   
 }
+.menu-items-lg{
+  padding-bottom: 2rem;
+}
 
 .log-ok{
   background-color:  style.$color-accent ;
@@ -62,7 +65,7 @@ $color-hover:  style.$primary-lighter-color;
 // region
 
 ._container_nav {
-  min-height: 100px;
+  min-height: 40px;
   padding:  0;
   display: flex; 
   justify-content: space-between;
@@ -91,7 +94,7 @@ $color-hover:  style.$primary-lighter-color;
 
 .logo_inner-img {
   // position: relative;
-  height: 70px;;
+  height: 20px;;
   // width: 70px;
   display: flex;
   //border-radius: 20%;
@@ -167,7 +170,7 @@ $color-hover:  style.$primary-lighter-color;
   }
 
   ._container_nav {
-    min-height: 80px;
+    min-height: 40px;
   }
   .logo_inner-name {
     //argin-top: 10px;

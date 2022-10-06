@@ -1,5 +1,11 @@
-<x01-v1-header></x01-v1-header>
-<p>appp</p>
+<x01-v1-header 
+[srcLogo]="_srcLogo"
+[jsonMenuURL]="_srcMenuJson"
+[company_name_1]=" _company_name_1"
+[company_name_2]=" _company_name_2"
+(onToggleSideBar)="onSideBarVisible()"
+class="example-toolbar"
+></x01-v1-header>
 <div
   name="main"
   class="_conteiner"
@@ -18,14 +24,20 @@
       </div>
     </div>
 
-    <x01-v1-sidebar> </x01-v1-sidebar>
+    <x01-v1-sidebar
+       [jsonMenuURL]="_srcMenuJson"
+       (onToggleSideBar)="onSideBarVisible()"
+       >
+        
+       </x01-v1-sidebar>
   </div>
 
   <div class="main_content">
     <!-------------------------------------------------------- start  main content-->
     <router-outlet></router-outlet>
   </div>
-  <x01-v1-footer></x01-v1-footer>
+  
   <!----------------- create end-->
 </div>
+<x01-v1-footer></x01-v1-footer>
 
