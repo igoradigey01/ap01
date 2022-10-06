@@ -8,14 +8,14 @@ import {MatListModule} from '@angular/material/list';
 
 const material = [
  // MatButtonModule,
-  //MatToolbarModule,
+  MatToolbarModule,
   //MatIconModule,
  // MatListModule
 ]
 
 @NgModule({
   declarations: [],
-  imports: [],
-  exports:[]
+  imports: [material],
+  exports:[material]
 })
 export class MaterialModule { }

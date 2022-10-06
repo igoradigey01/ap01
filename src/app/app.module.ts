@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppRoutingModule } from './app-routing.module';
-//import {MaterialModule} from './material.module'
+import {MaterialModule} from './material.module'
 import {ManagerServiceModule} from './basic_section/shared/services/maneger-service.module'
 
 import { AppComponent } from './app.component';
@@ -28,7 +28,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
   ],
   imports: [
     BrowserModule,
-   // BrowserAnimationsModule,
+    BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
   //  MaterialModule,
