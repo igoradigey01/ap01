@@ -1,0 +1,64 @@
+//-------------------
+ssh root@46.173.223.214
+//deploy
+scp -r D:\Документы\AngularProject\ap01\dist\xl01 root@46.173.223.214:~/myapp/nginx/data
+// backup
+scp -r root@46.173.223.214:~/myapp/images  E:\Backup_Host\Backup_images\12-05-22
+
+
+//---- docker-отчет об использовании дискового пространства <br/>
+docker system df 
+docker volume ls 
+docker volume prune // delete volume 
+docker ps 
+
+docker restart <container name>
+//---------------------
+1. остановка контейнера докеров
+docker stop container-id
+2. удаление док-контейнера
+docker rm container-id
+3. удаление образа докера
+docker rmi image-id
+4. снова собрать контейнер
+docker-compose up container-name
+
+
+//------------------------
+Откройте командой mmsys.cpl настройки звука
+
+// load js files and add var in angular (on jsPDF not relize)
+ //unzip <br/>
+  //convert<br/>
+  https://rawgit.com/MrRio/jsPDF/master/fontconverter/fontconverter.html <br/>
+  add file to assets/font/my-font.js <br/>
+  delete : import { jsPDF } from "jspdf"; and function
+  add angular.json /first  prodject section / "scripts": ["src/assets/fonts/my-font.js"] <br/>
+  add ( declare var font: any; ) header qr-code.component.ts
+  restart ( ng s )
+
+//--------------------------------------
+certbot certonly  --webroot    -m admin@x-01.ru -d s.x-01.ru
+//----------------------------------------
+certbot certonly  --webroot    -m admin@x-01.ru -d xf-01.ru
+
+Input the webroot for s.x-01.ru: (Enter 'c' to cancel): nginx/data
+
+//-----------------------------------
+Certificate is saved at: /etc/letsencrypt/live/xl-01.ru/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/xl-01.ru/privkey.pem  
+This certificate expires on 2022-11-26.
+
+//---------------------------------
+
+cp  /etc/letsencrypt/live/xf-01.ru/privkey.pem xf-01.ru.key  // copy files
+cp  /etc/letsencrypt/live/xf-01.ru/fullchain.pem xf-01.ru.crt
+
+cp  /etc/letsencrypt/live/s.x-01.ru/fullchain.pem s.x-01.ru.crt
+cp  /etc/letsencrypt/live/s.x-01.ru/privkey.pem s.x-01.ru.key
+
+//-----
+cp  /etc/letsencrypt/live/xl-01.ru/privkey.pem   xl-01.ru.key  // copy files
+cp   /etc/letsencrypt/live/xl-01.ru/fullchain.pem xl-01.ru.crt
+
+

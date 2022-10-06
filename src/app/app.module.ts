@@ -15,6 +15,7 @@ import {SidebarComponent} from './basic_section/sidebar/sidebar.component'
 import {HeaderComponent} from './basic_section/header/header.component';
 import {FooterComponent} from './basic_section/footer/footer.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {InfoComponent} from './info/info.component'
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
