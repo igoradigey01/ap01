@@ -1,7 +1,207 @@
-
 <div class="c-1 _container mat-typography">
-    <div class="c-2">
-        <h2>ПАБ-2М</h2>
-        
+  <div class="c-2">
+    <h2>ПАБ-2М  
+    
+    <div class="_btn_clear">
+      <button mat-mini-fab  (click)="clear()" aria-label=" icon button autorenew">
+        <mat-icon>autorenew</mat-icon>
+      </button>
     </div>
+  </h2>
+    <div class="_contaner">
+      <div *ngIf="!_flag_sendData; else elseSendData">
+       
+        <!-- begin _flag_sendData ------------------------------------->
+        <form #myOneTabForm="ngForm"  (submit)="saveOneTab(myOneTabForm.value)" novalidate>
+          <div class="item-form">
+            <div class="_input-row" >
+              <mat-form-field class="_input-item" appearance="fill">
+             
+    
+                <input
+                  matInput
+                 
+                  name="first_one"
+                  #first_one="ngModel"
+                  [(ngModel)]="_threeRowInput[0].firstValue"
+                  required
+                  
+                  pattern="[+0-9]{2}"
+                  
+                />
+    
+                <mat-error *ngIf="first_one.invalid"> </mat-error>
+              </mat-form-field>
+    
+              <mat-form-field class="_input-item" appearance="fill">
+               
+    
+                <input
+                  matInput
+                 
+                  name="one_last"
+                  #one_last="ngModel"
+                  [(ngModel)]="_threeRowInput[0].lastValue"
+                  required
+                  maxlength="2"
+                  
+                  pattern="[+0-9]{2}"
+                />
+    
+                <mat-error *ngIf="one_last.invalid"> </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="_input-row" >
+              <mat-form-field class="_input-item" appearance="fill">
+             
+    
+                <input
+                  matInput
+                 
+                  name="first_too"
+                  #first_too="ngModel"
+                  [(ngModel)]="_threeRowInput[1].firstValue"
+                  required
+                  maxlength="2"
+                  pattern="[+0-9]{2}"
+                  
+                />
+    
+                <mat-error *ngIf="first_too.invalid"> </mat-error>
+              </mat-form-field>
+    
+              <mat-form-field class="_input-item" appearance="fill">
+               
+    
+                <input
+                  matInput
+                  
+                  name="too_last"
+                  #too_last="ngModel"
+                  [(ngModel)]="_threeRowInput[1].lastValue"
+                  required
+                  maxlength="2"
+                  
+                  pattern="[+0-9]{2}"
+                />
+    
+                <mat-error *ngIf="too_last.invalid"> </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="_input-row" >
+              <mat-form-field class="_input-item" appearance="fill">
+             
+    
+                <input
+                  matInput
+          
+                  name="first_three"
+                  #first_three="ngModel"
+                  [(ngModel)]="_threeRowInput[2].firstValue"
+                  required
+                  maxlength="2"
+                  pattern="[+0-9]{2}"
+                  
+                />
+    
+                <mat-error *ngIf="first_three.invalid"> </mat-error>
+              </mat-form-field>
+    
+              <mat-form-field class="_input-item" appearance="fill">
+               
+    
+                <input
+                  matInput
+                
+                  name="three_last"
+                  #three_last="ngModel"
+                  [(ngModel)]="_threeRowInput[2].lastValue"
+                  required
+                  maxlength="2"
+                  
+                  pattern="[+0-9]{2}"
+                />
+    
+                <mat-error *ngIf="three_last.invalid"> </mat-error>
+              </mat-form-field>
+            </div>
+    <div class="deltaPab">
+      Am-(±DAm) <br>
+       
+      <mat-radio-group #delta name="delta" [(ngModel)]="selectedStatus" >
+      <mat-radio-button class="example-margin" labelPosition='before' value="+">+</mat-radio-button>  ||
+      <mat-radio-button class="example-margin"  value="-">-</mat-radio-button>
+    </mat-radio-group>
+      <div class="_input-row" >
+      (<span style="text-transform: uppercase;color: red;"> {{selectedStatus}}</span> )
+        <mat-form-field class="_input-item" appearance="fill">
+       
+
+          <input
+            matInput
+          
+            name="first_deltaPabInput"
+            #first_deltaPabInput="ngModel"
+            [(ngModel)]="_deltaPabInput.firstValue"
+            required
+            maxlength="2"
+            pattern="[+0-9]{2}"
+            
+          />
+
+          <mat-error *ngIf="first_deltaPabInput.invalid"> </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="_input-item" style="margin-right: 3rem;" appearance="fill">
+         
+
+          <input
+            matInput
+          
+            name="deltaPabInput_last"
+            #deltaPabInput_last="ngModel"
+            [(ngModel)]="_deltaPabInput.lastValue"
+            required
+            maxlength="2"
+            
+            pattern="[+0-9]{2}"
+          />
+
+          <mat-error *ngIf="deltaPabInput_last.invalid"> </mat-error>
+        </mat-form-field>
+      </div>
+
+    </div>
+            <!-----    ----------------- button gurop start           -->
+            <div class="_btn">
+              <button
+                mat-flat-button
+                [disabled]="myOneTabForm.invalid"
+                color="primary"
+                type="submit"
+              >
+                Расчитать
+              </button>              
+            </div>
+
+            
+          </div>
+        </form>
+    
+        <!-- end _flag_sendData ------------------------------------->
+      </div>
+    
+      <ng-template #elseSendData>
+        <div class="row" style="text-align: center">
+          <p>({{ _dirYgol }})</p>
+          <button mat-flat-button color="accent" (click)="undo()">Back</button>
+        </div>
+      </ng-template>
+    </div>
+    
   </div>
+</div>
+
+

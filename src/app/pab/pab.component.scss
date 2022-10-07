@@ -1,1 +1,27 @@
 @use '../../styles.scss';
+
+.item-form {
+    text-align: center;
+    display: grid;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr;
+  }
+  ._btn{
+   margin-left: auto;
+   margin-right: auto;
+  }
+
+  ._btn_clear{
+    display: inline;
+    margin-left: 1rem;
+  }
+  ._input-item{
+    margin-right: 0.5rem;
+    width: 4rem;
+  }
+  .one_tab{
+    height: 200px;
+  }
+  
