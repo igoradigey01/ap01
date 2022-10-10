@@ -16,6 +16,8 @@ import { HeaderComponent } from './basic_section/header/header.component';
 import { FooterComponent } from './basic_section/footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { InfoComponent } from './info/info.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,13 @@ import { InfoComponent } from './info/info.component';
     ManagerServiceModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
 
   providers: [],

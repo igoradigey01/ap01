@@ -5,6 +5,7 @@ scp -r D:\Документы\AngularProject\ap01\dist\xl01 root@46.173.223.214:~
 // backup
 scp -r root@46.173.223.214:~/myapp/images  E:\Backup_Host\Backup_images\12-05-22
 
+ssh root@91.203.193.127   // IDE VS code
 
 //---- docker-отчет об использовании дискового пространства <br/>
 docker system df 
