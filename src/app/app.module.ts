@@ -10,7 +10,6 @@ import { MaterialModule } from './material.module';
 import { ManagerServiceModule } from './basic_section/shared/services/maneger-service.module';
 
 import { AppComponent } from './app.component';
-import { PabComponent } from './pab/pab.component';
 import { SidebarComponent } from './basic_section/sidebar/sidebar.component';
 import { HeaderComponent } from './basic_section/header/header.component';
 import { FooterComponent } from './basic_section/footer/footer.component';
@@ -18,6 +17,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { InfoComponent } from './info/info.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
+import { PabComponent } from './pab/pab.component';
+import {OgzComponent} from './ogz/ogz.component'
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { environment } from '../environments/environment';
     FooterComponent,
     PageNotFoundComponent,
     InfoComponent,
+    OgzComponent
   ],
   imports: [
     BrowserModule,
