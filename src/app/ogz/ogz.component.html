@@ -1,106 +1,198 @@
 <div class="c-1 _container mat-typography">
   <div class="c-2">
-    <h2>ОГЗ</h2>
+    <h2 > <button mat-button (click)=" goOP()"  color="primary" ><span class="mat-title" > ОГЗ</span></button></h2>
 
     <div [ngSwitch]="_flagViewState">
       <ng-template ngSwitchDefault>
+        <form #myOpForm="ngForm" novalidate>
+          <div class="_form_card">
+            <h3 style="margin-left: 1rem">
+              Координаты ОП
+              <div class="_btn_clear">
+                <button
+                  mat-mini-fab
+                  (click)="clearOP()"
+                  aria-label=" icon button autorenew"
+                >
+                  <mat-icon>autorenew</mat-icon>
+                </button>
+              </div>
+            </h3>
 
-        <div class="_form_card">
-        <h3 style="margin-left: 1rem">Задать Координаты ОП</h3>
+            <div class="_input-row">
+              <label class="_lable">X:</label>
+              <mat-form-field class="_input-item" appearance="fill">
+                <input
+                  matInput
+                  name="op_x_firs"
+                  #op_x_firs="ngModel"
+                  [(ngModel)]="_op.x_firs"
+                  required
+                  maxlength="2"
+                  pattern="[+0-9]{2}"
+                />
 
-        <div class="_input-row">
-          <label class="_lable">X:</label>
-          <mat-form-field class="_input-item" appearance="fill">
-            <input
-              matInput
-              name="op_x_firs"
-              #op_x_firs="ngModel"
-              [(ngModel)]="_op.x_firs"
-              required
-              maxlength="2"
-              pattern="[+0-9]{2}"
-            />
+                <mat-error *ngIf="op_x_firs.invalid"> </mat-error>
+              </mat-form-field>
 
-            <mat-error *ngIf="op_x_firs.invalid"> </mat-error>
-          </mat-form-field>
+              <mat-form-field class="_input-item" appearance="fill">
+                <input
+                  matInput
+                  name="op_x_last"
+                  #op_x_last="ngModel"
+                  [(ngModel)]="_op.x_last"
+                  required
+                  maxlength="3"
+                  pattern="[+0-9]{3}"
+                />
 
-          <mat-form-field class="_input-item" appearance="fill">
-            <input
-              matInput
-              name="op_x_last"
-              #op_x_last="ngModel"
-              [(ngModel)]="_op.x_last"
-              required
-              maxlength="3"
-              pattern="[+0-9]{3}"
-            />
+                <mat-error *ngIf="op_x_last.invalid"> </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="_input-row">
+              <label class="_lable">Y:</label>
+              <mat-form-field class="_input-item" appearance="fill">
+                <input
+                  matInput
+                  name="op_y_firs"
+                  #op_y_firs="ngModel"
+                  [(ngModel)]="_op.y_firs"
+                  required
+                  maxlength="2"
+                  pattern="[+0-9]{2}"
+                />
 
-            <mat-error *ngIf="op_x_last.invalid"> </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="_input-row">
-          <label class="_lable">Y:</label>
-          <mat-form-field class="_input-item" appearance="fill">
-            <input
-              matInput
-              name="op_y_firs"
-              #op_y_firs="ngModel"
-              [(ngModel)]="_op.y_firs"
-              required
-              maxlength="2"
-              pattern="[+0-9]{2}"
-            />
+                <mat-error *ngIf="op_y_firs.invalid"> </mat-error>
+              </mat-form-field>
 
-            <mat-error *ngIf="op_y_firs.invalid"> </mat-error>
-          </mat-form-field>
+              <mat-form-field class="_input-item" appearance="fill">
+                <input
+                  matInput
+                  name="op_y_last"
+                  #op_y_last="ngModel"
+                  [(ngModel)]="_op.y_last"
+                  required
+                  maxlength="3"
+                  pattern="[+0-9]{3}"
+                />
 
-          <mat-form-field class="_input-item" appearance="fill">
-            <input
-              matInput
-              name="op_y_last"
-              #op_y_last="ngModel"
-              [(ngModel)]="_op.y_last"
-              required
-              maxlength="3"
-              pattern="[+0-9]{3}"
-            />
+                <mat-error *ngIf="op_y_last.invalid"> </mat-error>
+              </mat-form-field>
+            </div>
 
-            <mat-error *ngIf="op_y_last.invalid"> </mat-error>
-          </mat-form-field>
-        </div>
-
-        <div class="_btn_op">
-          <div class="_btn">
-            <button mat-flat-button (click)="saveOP()" color="primary">Установить</button>
+            <div class="_btn_op">
+              <div class="_btn">
+                <button
+                  mat-flat-button
+                  [disabled]="myOpForm.invalid"
+                  (click)="saveOP()"
+                  color="accent"
+                >
+                  Установить
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="_btn">
-            <button mat-flat-button (click)="editOP()" color="accent">Изменить</button>
-          </div>
-        </div>
-      </div>
+        </form>
       </ng-template>
-      <ng-template name="Edit_op" ngSwitchCase="1">
-        <p>Изменить Координаты ОП</p>
-        <div class="_btn">
-          <button mat-flat-button (click)="saveOP()" color="primary">Сохранить</button>
-        </div>
-      </ng-template>
+
       <ng-template name="Cell" ngSwitchCase="2">
-        <h3>
-          Координаты Цели
-          <div class="_btn_clear">
-            <button mat-mini-fab  (click)="clear()" aria-label=" icon button autorenew">
-              <mat-icon>autorenew</mat-icon>
-            </button>
+        <form #myCellForm="ngForm" novalidate>
+          <div class="_form_card">
+           
+           
+            <div style="text-align: center">
+              x:{{ Op_Point.x_firs }}.{{ Op_Point.x_last
+              }}<span style="margin-right: 1rem">
+                y:{{ Op_Point.y_firs }}.{{ Op_Point.y_last }}</span
+              >
+            </div>
+            <h3>
+              Координаты Цели
+              <div class="_btn_clear">
+                <button
+                  mat-mini-fab
+                  (click)="clearCell()"
+                  aria-label=" icon button autorenew"
+                >
+                  <mat-icon>autorenew</mat-icon>
+                </button>
+              </div>
+            </h3>
+
+            <div class="_input-row">
+              <label class="_lable">X:</label>
+              <mat-form-field class="_input-item" appearance="fill">
+                <input
+                  matInput
+                  name="cell_x_firs"
+                  #cell_x_firs="ngModel"
+                  [(ngModel)]="_cell.x_firs"
+                  required
+                  maxlength="2"
+                  pattern="[+0-9]{2}"
+                />
+
+                <mat-error *ngIf="cell_x_firs.invalid"> </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="_input-item" appearance="fill">
+                <input
+                  matInput
+                  name="cell_x_last"
+                  #cell_x_last="ngModel"
+                  [(ngModel)]="_cell.x_last"
+                  required
+                  maxlength="3"
+                  pattern="[+0-9]{3}"
+                />
+
+                <mat-error *ngIf="cell_x_last.invalid"> </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="_input-row">
+              <label class="_lable">Y:</label>
+              <mat-form-field class="_input-item" appearance="fill">
+                <input
+                  matInput
+                  name="cell_y_firs"
+                  #cell_y_firs="ngModel"
+                  [(ngModel)]="_cell.y_firs"
+                  required
+                  maxlength="2"
+                  pattern="[+0-9]{2}"
+                />
+
+                <mat-error *ngIf="cell_y_firs.invalid"> </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="_input-item" appearance="fill">
+                <input
+                  matInput
+                  name="cell_y_last"
+                  #cell_y_last="ngModel"
+                  [(ngModel)]="_cell.y_last"
+                  required
+                  maxlength="3"
+                  pattern="[+0-9]{3}"
+                />
+
+                <mat-error *ngIf="cell_y_last.invalid"> </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="_btn">
+              <button mat-flat-button (click)="calculeteData()" color="primary">
+                Расчитать
+              </button>
+            </div>
           </div>
-        </h3>
-        <div class="_btn">
-          <button mat-flat-button (click)=" calculeteData()" color="primary">Расчитать</button>
-        </div>
+        </form>
       </ng-template>
-      <ng-template name="Cell_op" ngSwitchCase="3">
+      <ng-template name="bt_data" ngSwitchCase="3">
         <div class="row" style="text-align: center">
           <p>Вывод Значения Координат Цели</p>
+
+          <p>градусы({{dir_ygol}})</p>
 
           <button mat-flat-button color="accent" (click)="undo()">Back</button>
         </div>
